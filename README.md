@@ -289,8 +289,10 @@ Answer: The industry groups with the most significant decreases in carbon footpr
 
 The percentage decreases overtime of these indsutries are nearly 100%, for example for Pharmaceuticals, Biotechnology & Life Sciences - The industry was accounted for 32,271 pcf in 2013 but dropped to 0 after 2015 and onward. 
 
-## Notable insight, interesting facts and patterns: 
-
+## Notable insight, interesting facts and patterns:
+1. Food & Staples Retailing is responsible for producing many plastic, glass products like Nescafe, Coca-Cola bottle. Yet these fast moving consumers good product little to no carbon footprint as their average PCF is 0
+2. The production of circuit breaker in Electrical Equipment and Machinery has the highest total carbon emission compared to the rest of the product & industry
+3. Both Colombia and Lithuania are the leading countries in term of the highest air quality as both countries have 0 Carbon Footprint. Next is Greece which accounted only 1 total PCF
 
 
 

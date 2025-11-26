@@ -211,5 +211,87 @@ Top 3 countries:
 - Germany
 - Japan
 
+### Question 6: What is the trend of carbon footprints (PCFs) over the years?
+Query: 
+```SQL
+SELECT year,
+		round(sum(carbon_footprint_pcf),2) as 'Total Carbon Footprint pcf'
+FROM product_emissions p 
+group by year
+```
+
+Result: 
+|year|Total Carbon Footprint pcf|
+|----|--------------------------|
+|2013|503857.00|
+|2014|624226.00|
+|2015|10840415.00|
+|2016|1640182.00|
+|2017|340271.00|
+
+Answer: The carbon footprints increased over the year. It increased highest during 2014 - 2015 for 10,840,415 pcf and lowest in 2017 for 340,271 pcf
+
+### Question 7: Which industry groups has demonstrated the most notable decrease in carbon footprints (PCFs) over time?
+Query: 
+```SQL
+SELECT 	i.industry_group,
+		SUM(CASE WHEN p.year = 2013 THEN p.carbon_footprint_pcf ELSE 0 END) AS '2013',
+		SUM(CASE WHEN p.year = 2014 THEN p.carbon_footprint_pcf ELSE 0 END) AS '2014',
+		SUM(CASE WHEN p.year = 2015 THEN p.carbon_footprint_pcf ELSE 0 END) AS '2015',
+		SUM(CASE WHEN p.year = 2016 THEN p.carbon_footprint_pcf ELSE 0 END) AS '2016',
+		SUM(CASE WHEN p.year = 2017 THEN p.carbon_footprint_pcf ELSE 0 END) AS '2017'
+FROM product_emissions p 
+LEFT JOIN industry_groups i
+on p.industry_group_id = i.id
+group by i.industry_group
+order by i.industry_group
+```
+Result:
+|industry_group|2013|2014|2015|2016|2017|
+|--------------|----|----|----|----|----|
+|"Consumer Durables, Household and Personal Products"|0|0|931|0|0|
+|"Food, Beverage & Tobacco"|4995|2685|0|100289|3162|
+|"Forest and Paper Products - Forestry, Timber, Pulp and Paper, Rubber"|0|0|8909|0|0|
+|"Mining - Iron, Aluminum, Other Metals"|0|0|8181|0|0|
+|"Pharmaceuticals, Biotechnology & Life Sciences"|32271|40215|0|0|0|
+|"Textiles, Apparel, Footwear and Luxury Goods"|0|0|387|0|0|
+|Automobiles & Components|130189|230015|817227|1404833|0|
+|Capital Goods|60190|93699|3505|6369|94949|
+|Chemicals|0|0|62369|0|0|
+|Commercial & Professional Services|1157|477|0|2890|741|
+|Consumer Durables & Apparel|2867|3280|0|1162|0|
+|Containers & Packaging|0|0|2988|0|0|
+|Electrical Equipment and Machinery|0|0|9801558|0|0|
+|Energy|750|0|0|10024|0|
+|Food & Beverage Processing|0|0|141|0|0|
+|Food & Staples Retailing|0|773|706|2|0|
+|Gas Utilities|0|0|122|0|0|
+|Household & Personal Products|0|0|0|0|0|
+|Materials|200513|75678|0|88267|213137|
+|Media|9645|9645|1919|1808|0|
+|Retailing|0|19|11|0|0|
+|Semiconductors & Semiconductor Equipment|0|50|0|4|0|
+|Semiconductors & Semiconductors Equipment|0|0|3|0|0|
+|Software & Services|6|146|22856|22846|690|
+|Technology Hardware & Equipment|61100|167361|106157|1566|27592|
+|Telecommunication Services|52|183|183|0|0|
+|Tires|0|0|2022|0|0|
+|Tobacco|0|0|1|0|0|
+|Trading Companies & Distributors and Commercial Services & Supplies|0|0|239|0|0|
+|Utilities|122|0|0|122|0|
+
+Answer: The industry groups with the most significant decreases in carbon footprint overtime are:
+- Pharmaceuticals, Biotechnology & Life Sciences
+- Consumer Durables & Apparel
+- Food & Staples Retailing
+- Telecommunication Services
+- Mining – Iron, Aluminum & Other Metals
+
+The percentage decreases overtime of these indsutries are nearly 100%, for example for Pharmaceuticals, Biotechnology & Life Sciences - The industry was accounted for 32,271 pcf in 2013 but dropped to 0 after 2015 and onward. 
+
+## Notable insight, interesting facts and patterns: 
+
+
+
 
 

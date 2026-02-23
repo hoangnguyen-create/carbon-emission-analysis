@@ -1,4 +1,4 @@
-# carbon-emission-analysis
+# Carbon Emission Analysis
 ## Introduction
 <img width="512" height="341" alt="image" src="https://github.com/user-attachments/assets/2d1148ef-bd29-44d8-b239-90d3ada09b80" />
 
